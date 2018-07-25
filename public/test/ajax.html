@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ajax测试</title>
+</head>
+<body>
+  <button onclick="sendAjax()">点击发送</button>
+<script type="text/javascript">
+  // ajax方法的实现
+  function sendAjax()
+  {
+    // alert('发送');
+    // 1、创建一个发送的对象
+    var xmlhttp = new XMLHttpRequest();
+    // 2、设置请求参数发送请求
+    // 设置参数
+    xmlhttp.open('get','ajax.txt',true);
+    xmlhttp.send();
+    // 3、检测请求完成 触发回调方法
+    xmlhttp.onreadystatechange = function(){
+      // alert(xmlhttp.readyState);
+      // 判断请求完成并且成功
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+        // 数据的返回处理
+        // alter打印出  返回数据
+        alert(xmlhttp.responseText);
+      }
+    }
+  }
+</script>
+</body>
+</html>

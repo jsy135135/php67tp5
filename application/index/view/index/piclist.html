@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost/php67tp5/public/static/bootstrap.css"> -->
+</head>
+<style>
+.box {
+    float: left;
+}
+
+
+/*.pagination {
+  font-size: 20px;
+}
+.pagination > li {
+  float: left;
+  list-style: none;
+  border:#ff6500 1px solid;
+  width: 20px;
+}
+.active{
+  color: red;
+}*/
+
+.pagination li {
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+    padding: 0 10px;
+    background-color: #5a98de;
+    border: 1px solid #ccc;
+    height: 26px;
+    line-height: 26px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.pagination li a {
+    color: white;
+    padding: 0;
+    line-height: inherit;
+    border: none;
+}
+
+.pagination li a:hover {
+    background-color: #5a98de;
+}
+
+.pagination li.active {
+    background-color: white;
+    color: gray;
+}
+
+.pagination li.disabled {
+    background-color: white;
+    color: gray;
+}
+</style>
+
+<body>
+    {volist name="list" id="vo"}
+    <div class="box">
+        <p>{$vo.id}</p>
+        <img src="http://localhost/php67tp5/public/{$vo.url}" />
+        <p>{$vo.title}</p>
+    </div>
+    {/volist}
+    <div style="clear:both;"></div>
+    {$list->render()}
+</body>
+
+</html>

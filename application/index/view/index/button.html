@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="http://localhost/php67tp5/public/static/button.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://localhost/php67tp5/public/static/css/font-awesome-ie7.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="http://localhost/php67tp5/public/static/css/font-awesome.css">
+</head>
+<body>
+  <button class="button button-3d button-large  button-caution"><i class="icon-signal"></i> 按钮</button>
+  <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+  <script type="text/javascript" src="http://localhost/php67tp5/public/static/layer.js"></script>
+  <script type="text/javascript">
+    $('button').click(function(event) {
+      $.get('{:url("lineWeather")}', function(data) {
+        layer.alert(data);
+        // alert(data);
+        layer.open({
+          type: 1,
+          title: "彩色图片",
+          closeBtn: 1,
+          area: '500px',
+          skin: 'layui-layer-nobg', //没有背景色
+          shadeClose: true,
+          content: '<img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=889120611,3801177793&fm=27&gp=0.jpg"/>'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

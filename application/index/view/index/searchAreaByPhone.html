@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>查询电话号码归属地</title>
+</head>
+<body>
+  <style>
+    #search
+    {
+      text-align: center;
+      margin-top: 20%;
+    }
+    input{
+      line-height: 30px;
+      width: 400px;
+    }
+    button{
+      height: 35px;
+    }
+  </style>
+   <div id="search">
+    电话号码：<input type="text" name="phone" value="" /><button>查询</button>
+   </div>
+   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+   <script type="text/javascript">
+     // button点击之后进行查询
+     $('button').click(function(event) {
+       // 发送ajax请求数据
+       // 电话号码
+       var phone = $('input').val();
+       $.get("{:url('getAreaByPhone')}", {format:'json',phone:phone},function(data) {
+          // json字符串转为json对象
+          var data = JSON.parse(data);
+          console.log(data);
+          var html = "<p>运营商:"+ data.sp +"</p><p>省份:"+ data.province +"</p>"+"<p>城市:"+ data.city + "</p>";
+          // console.log(html);
+          $('button').after(html);
+       },'json');
+     });
+   </script>
+</body>
+</html>
